@@ -1,0 +1,106 @@
+'''fuzz perfmon.exe'''</br>
+<strike>strike</strike>
+
+== Level 2 ==
+
+=== Level 3 ===
+
+==== Level 4 ====
+
+===== Level 5 =====
+
+====== Level 6 ======
+== 水平线 ==
+水平线前
+----
+水平线后
+== 无序列表 ==
+文本前加”*”号可以实现无序列表效果，”*”号的个数表示列表对应的级别，如
+*1
+
+**11
+
+**12
+
+*2
+
+**21
+
+**22
+== 有序列表 ==
+
+文本前加”#”号可以实现有序列表效果，”#”号的个数表示列表对应的级别，如
+
+#1
+
+##11
+
+##12
+
+#2
+
+##21
+
+##22
+== 分类 ==
+在页面中加入[[Category:MediaWiKi 入门]]，会在页面底部生成分类链接，点击链接后可看到该分类下的所有页面
+
+== 上传文件设定 ==
+
+配置文件LocalSettings中，$wgEnableUploads就是控制上传的参数，true允许，false不允许。
+
+MediaWiki中允许上传的文件类型是有限制的，默认支持'png','gif', 'jpg', 'jpeg'这几种文件类型，对应的配置可参阅DefaultSettings.php中$wgFileExtensions的值；而不允许的文件类型在参数$wgFileBlacklist中设定。
+
+登录后，可以通过导航栏或特殊页面中的上传文件链接上传文件。可使用[[File:文件名]]在页面中引用文件，如果引入的是图片文件，还可以指定图片宽度([[File:Example.jpg|200px]])，加入图片说明([[File:Example.jpg|图片1]])
+
+== 编辑器 ==
+
+MediaWiki自带的编辑器比较简单，用于页面编辑不太方便。从1.18版开始，MediaWiki中集成了一款增强型编辑器WikiEditor，在LocalSettings.php中加入如下行可启用WikiEditor，
+
+$wgDefaultUserOptions['usebetatoolbar'] =1;
+
+从1.21版本开始，MediaWiki默认集成了GeSHi(Generic Syntax Highlighter)插件，这是一款支持语法高亮显示的插件，借助<syntaxhighlight>标签可在页面中显示格式化的源码，还可以在此标签中使用参数”line”以显示代码行号，如下面的例子所示：
+
+<syntaxhighlight lang="php"line>
+
+<?php
+
+   echo "Hello, World!";
+
+?>
+
+</syntaxhighlight>
+
+== 修改导航栏 ==
+
+通过wiki地址index.php/MediaWiki:Sidebar
+
+如，http://localhost/mediawiki/index.php/MediaWiki:Sidebar，或者在搜索栏中输入“mediawiki:sidebar”，进入页面后点击编辑即可。
+
+导航栏格式如下：
+
+*导航栏名称一
+
+**链接一地址|链接一名称
+
+**链接二地址|链接二名称
+
+ 
+
+*导航栏名称二
+
+**链接一地址|链接一名称
+
+**链接二地址|链接二名称
+
+== 查看MediaWiki版本 ==
+
+可通过选择"特殊页面" -> "数据与工具" -> "版本"，或者搜索"Special:Version"打开版本页面，在这个页面可以看到MediaWiki版本、PHP版本、Apache版本和所安装的扩展的版本等信息。
+
+== 用户组 ==
+
+MediaWiki中有3个用户组：机器人/管理员/行政员，每个用户组的具体权限可通过”特殊页面” -> “用户组权限”查看，通过首页中”创建用户”注册的用户默认不属于任何用户组；从属于行政员用户组的用户，可通过”特殊页面” -> “用户权限管理”给其他用户分配用户组。
+
+== 页面缓存 ==
+
+在配置文件DefaultSettings.php中，找到参数$wgCacheEpoch，将参数值置为当前时间，可以取消全部已经缓存的页面(包括客户端和服务器端)。
